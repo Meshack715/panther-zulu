@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Sales</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 20px;
+            justify-items: center;
+        }
+        .gallery figure {
+            position: relative;
+            margin: 0;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .gallery figcaption {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .product-details {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .product-details img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .product-details h2 {
+            margin-top: 0;
+        }
+        .product-details p {
+            margin-bottom: 10px;
+        }
+        .product-details label {
+            font-weight: bold;
+        }
+        .product-details select {
+            padding: 8px;
+            border-radius: 5px;
+        }
+        .product-details button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .product-details button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header Title -->
+        <h1>Kids Shoe Sales</h1>
+    </header>
+    <div class="container">
+        <!-- Search Form -->
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="Search...">
+            <input type="submit" value="Search" onclick="redirectToPayment('C:\\Users\\mesha\\Desktop\\SHOE SALES\\payment method.html')">
+        </form>
+        <!-- Image Gallery -->
+        <div class="gallery">
+            <!-- Image Figures with onclick event -->
+            <figure onclick="redirectToRegistration('C:\\Users\\mesha\\Desktop\\SHOE SALES\\Customer Registration.html')">
+                <img src="c:\Users\mesha\Desktop\SHOE SALES\kids shoes\black dinosaur.jpeg" alt="black dinosaur">
+                <figcaption>$40</figcaption>
+            </figure>
+            <figure onclick="redirectToRegistration('C:\\Users\\mesha\\Desktop\\SHOE SALES\\Customer Registration.html')">
+                <img src="c:\Users\mesha\Desktop\SHOE SALES\kids shoes\enari baby toddler girl.jpeg" alt="baby toddler girl">
+                <figcaption>$35</figcaption>
+            </figure>
+            <figure onclick="redirectToRegistration('C:\\Users\\mesha\\Desktop\\SHOE SALES\\Customer Registration.html')">
+                <img src="c:\Users\mesha\Desktop\SHOE SALES\kids shoes\Fashion casual shoes.jpeg" alt="fashion casual shoes">
+                <figcaption>$45</figcaption>
+            </figure>
+            <figure onclick="redirectToRegistration('C:\\Users\\mesha\\Desktop\\SHOE SALES\\Customer Registration.html')">
+                <img src="c:\Users\mesha\Desktop\SHOE SALES\kids shoes\Qoo10.jpeg" alt="Qoo10">
+                <figcaption>$50</figcaption>
+            </figure>
+            <figure onclick="redirectToRegistration('C:\\Users\\mesha\\Desktop\\SHOE SALES\\Customer Registration.html')">
+                <img src="c:\Users\mesha\Desktop\SHOE SALES\kids shoes\running shoes.jpeg" alt="running shoes">
+                <figcaption>$55</figcaption>
+            </figure>
+            <figure onclick="redirectToRegistration('C:\\Users\\mesha\\Desktop\\SHOE SALES\\Customer Registration.html')">
+                <img src="c:\Users\mesha\Desktop\SHOE SALES\kids shoes\sneakers.jpeg" alt="sneakers">
+                <figcaption>$30</figcaption>
+            </figure>
+            <figure onclick="redirectToRegistration('C:\\Users\\mesha\\Desktop\\SHOE SALES\\Customer Registration.html')">
+                <img src="c:\Users\mesha\Desktop\SHOE SALES\kids shoes\The independent.jpeg" alt="The independent">
+                <figcaption>$60</figcaption>
+            </figure>
+        </div>
+    </div>
+    <!-- Product Details Section -->
+    <div class="product-details" style="display: none;">
+        <img src="" alt="Product Image">
+        <h2>Product Name</h2>
+        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Price: $50</p>
+        <label for="size">Size:</label>
+        <select name="size" id="size">
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <br><br>
+        <button>Add to Cart</button>
+    </div>
+    <!-- Footer Section -->
+    <footer class="footer">
+        &copy; 2024 Shoe Sales
+    </footer>
+    <!-- JavaScript to handle redirection -->
+    <script>
+        // JavaScript function to redirect to registration page
+        function redirectToRegistration(url) {
+            window.location.href = url;
+        }
+
+        // JavaScript function to redirect to payment method page
+        function redirectToPayment(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

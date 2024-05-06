@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        /* CSS styles for better visual appearance */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: #ff0000;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        fieldset {
+            border: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <form id="registrationForm">
+        <!-- Input fields for user registration -->
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required>
+        
+        <label for="middlename">Middle Name:</label>
+        <input type="text" id="middlename" name="middlename">
+        
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required>
+
+        <fieldset>
+            <legend>Gender:</legend>
+            <label><input type="radio" name="gender" value="male">Male</label>
+            <label><input type="radio" name="gender" value="female">Female</label>
+            <label><input type="radio" name="gender" value="other">Other</label>
+        </fieldset>
+
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" cols="30" rows="3"></textarea>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Buttons for shoe types -->
+        <div id="mainButton" class="button-container">
+            <h2>Choose Shoe Type You have picked:</h2>
+            <button onclick="displayMenShoes()">Open Men's Shoe Types</button>
+            <button onclick="displayWomenShoes()">Open Women's Shoe Types</button>
+            <button onclick="displayKidsShoes()">Open Kids' Shoe Types</button>
+        </div>
+
+        <div id="additionalButtons" class="button-container hidden">
+            <select id="shoes" name="shoes">
+                <!-- Options will be dynamically populated -->
+            </select>
+        </div>
+
+        <!-- Button to submit the form with a link -->
+        <div class="button-container">
+            <input type="button" value="Submit" onclick="submitForm()">
+        </div>
+    </form>
+
+    <script>
+        // Function to display men's shoe types
+        function displayMenShoes() {
+            var menShoes = document.getElementById('shoes');
+            menShoes.innerHTML = ''; // Clear previous options
+
+            // Add options for men's shoes
+            var menShoeTypes = [
+                "Adidas", "Driving Shoes", "Leather", "Oxford Shoes", "Derby Shoes",
+                "Loafers", "Brogues", "Monks Straps", "Boots", "Sneakers"
+            ];
+
+            menShoeTypes.forEach(function(shoeType) {
+                var option = document.createElement('option');
+                option.value = shoeType;
+                option.textContent = shoeType;
+                menShoes.appendChild(option);
+            });
+
+            // Show additional buttons
+            var additionalButtons = document.getElementById('additionalButtons');
+            additionalButtons.classList.remove('hidden');
+        }
+
+        // Function to display women's shoe types
+        function displayWomenShoes() {
+            var womenShoes = document.getElementById('shoes');
+            womenShoes.innerHTML = ''; // Clear previous options
+
+            // Add options for women's shoes
+            var womenShoeTypes = [
+                "Pumps", "Ballet Flats", "Sandals", "Ankle Boots", "Wedges",
+                "Sneakers", "Platform Shoes", "Espadrilles", "Mules", "Wedge Sandals"
+            ];
+
+            womenShoeTypes.forEach(function(shoeType) {
+                var option = document.createElement('option');
+                option.value = shoeType;
+                option.textContent = shoeType;
+                womenShoes.appendChild(option);
+            });
+
+            // Show additional buttons
+            var additionalButtons = document.getElementById('additionalButtons');
+            additionalButtons.classList.remove('hidden');
+        }
+
+        // Function to display kids' shoe types
+        function displayKidsShoes() {
+            var kidsShoes = document.getElementById('shoes');
+            kidsShoes.innerHTML = ''; // Clear previous options
+
+            // Add options for kids' shoes
+            var kidsShoeTypes = [
+                "Sandals", "Rain Boots", "Leather", "Oxford Shoes", "Ballet Flats",
+                "Loafers", "Brogues", "Flip Flops", "Boots", "Sneakers"
+            ];
+
+            kidsShoeTypes.forEach(function(shoeType) {
+                var option = document.createElement('option');
+                option.value = shoeType;
+                option.textContent = shoeType;
+                kidsShoes.appendChild(option);
+            });
+
+            // Show additional buttons
+            var additionalButtons = document.getElementById('additionalButtons');
+            additionalButtons.classList.remove('hidden');
+        }
+
+        // Function to submit the form and navigate to payment page
+        function submitForm() {
+            var form = document.getElementById("registrationForm");
+            // Submit the form
+            form.submit();
+            // Navigate to the payment page
+            window.location.href = "file:///C:/Users/mesha/Desktop/SHOE%20SALES/payment%20method.html";
+        }
+    </script>
+</body>
+</html>

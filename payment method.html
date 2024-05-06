@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5deb3; /* Light brown background */
+        }
+        /* Form styling */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            display: none; /* Initially hide all payment buttons */
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Payment Form -->
+    <h2>Make Payment</h2>
+    <form action="/process_payment" method="POST">
+        <!-- Payment Method Selection -->
+        <label for="payment_method">Select Payment Method:</label>
+        <select name="payment_method" id="payment_method">
+            <option value=""></option>
+            <option value="credit_card">Credit Card</option>
+            <option value="mpesa">M-Pesa</option>
+            <option value="bank">Bank Transfer</option> <!-- Added bank payment option -->
+        </select>
+
+        <!-- Credit Card Details Section -->
+        <div id="credit_card_details" style="display: none;">
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter card number" required>
+            <label for="expiry">Expiration Date (MM/YYYY):</label>
+            <input type="text" id="expiry" name="expiry" placeholder="MM/YYYY" required>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+            <label for="cardName">Name on Card:</label>
+            <input type="text" id="cardName" name="cardName" placeholder="Enter name on card" required>
+            <!-- Additional fields for billing address -->
+            <label for="billingAddress">Billing Address:</label>
+            <input type="text" id="billingAddress" name="billingAddress" placeholder="Enter billing address" required>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" placeholder="Enter city" required>
+            <label for="zip">ZIP Code:</label>
+            <input type="text" id="zip" name="zip" placeholder="Enter ZIP code" required>
+            <!-- Submit Button -->
+            <input type="submit" id="credit_card_submit" value="Pay">
+        </div>
+
+        <!-- M-Pesa Details Section -->
+        <div id="mpesa_details" style="display: none;">
+            <label for="mpesa_number">M-Pesa Phone Number:</label>
+            <input type="text" id="mpesa_number" name="mpesa_number" placeholder="Enter M-Pesa phone number" required>
+            <label for="mpesa_pin">M-Pesa PIN:</label>
+            <input type="text" id="mpesa_pin" name="mpesa_pin" placeholder="Enter M-Pesa PIN" required>
+            <!-- Submit Button -->
+            <input type="submit" id="mpesa_submit" value="Pay">
+        </div>
+
+        <!-- Bank Transfer Details Section -->
+        <div id="bank_details" style="display: none;">
+            <label for="account_number">Account Number:</label>
+            <input type="text" id="account_number" name="account_number" placeholder="Enter account number" required>
+            <label for="routing_number">Routing Number:</label>
+            <input type="text" id="routing_number" name="routing_number" placeholder="Enter routing number" required>
+            <!-- Submit Button -->
+            <input type="submit" id="bank_submit" value="Pay">
+        </div>
+    </form>
+
+    <!-- JavaScript to toggle display of payment method details -->
+    <script>
+        document.getElementById('payment_method').addEventListener('change', function() {
+            var selectedPaymentMethod = this.value;
+            if (selectedPaymentMethod === 'credit_card') {
+                document.getElementById('credit_card_details').style.display = 'block';
+                document.getElementById('mpesa_details').style.display = 'none';
+                document.getElementById('bank_details').style.display = 'none';
+                document.getElementById('credit_card_submit').style.display = 'block'; // Show credit card submit button
+                document.getElementById('mpesa_submit').style.display = 'none'; // Hide M-Pesa submit button
+                document.getElementById('bank_submit').style.display = 'none'; // Hide bank submit button
+            } else if (selectedPaymentMethod === 'mpesa') {
+                document.getElementById('credit_card_details').style.display = 'none';
+                document.getElementById('mpesa_details').style.display = 'block';
+                document.getElementById('bank_details').style.display = 'none';
+                document.getElementById('credit_card_submit').style.display = 'none'; // Hide credit card submit button
+                document.getElementById('mpesa_submit').style.display = 'block'; // Show M-Pesa submit button
+                document.getElementById('bank_submit').style.display = 'none'; // Hide bank submit button
+            } else if (selectedPaymentMethod === 'bank') {
+                document.getElementById('credit_card_details').style.display = 'none';
+                document.getElementById('mpesa_details').style.display = 'none';
+                document.getElementById('bank_details').style.display = 'block';
+                document.getElementById('credit_card_submit').style.display = 'none'; // Hide credit card submit button
+                document.getElementById('mpesa_submit').style.display = 'none'; // Hide M-Pesa submit button
+                document.getElementById('bank_submit').style.display = 'block'; // Show bank submit button
+            }
+        });
+    </script>
+</body>
+</html>

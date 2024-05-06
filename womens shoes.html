@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Sales</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            border-radius: 0 0 5px 5px;
+            margin-top: 20px;
+        }
+
+        /* Form Styles */
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            width: calc(50% - 5px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Gallery Styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        figure {
+            margin: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        figcaption {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        figure:hover figcaption {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Women's Shoe Sales</h1>
+    </header>
+    <div class="container">
+        <a href="C:\Users\mesha\Desktop\SHOE SALES\payment method.html">
+            <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Search...">
+                <input type="submit" value="Submit">
+            </form>
+        </a>
+        <div class="gallery">
+            <figure>
+                <a href="C:\Users\mesha\Desktop\SHOE SALES\Customer Registration.html">
+                    <img src="c:\Users\mesha\Desktop\SHOE SALES\womens shoes\Bytes.jpeg" alt="Bytes">
+                    <figcaption>$40 - Bytes</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="C:\Users\mesha\Desktop\SHOE SALES\Customer Registration.html">
+                    <img src="c:\Users\mesha\Desktop\SHOE SALES\womens shoes\Covington Women's Arcadia Black Wedge Shoes.jpeg" alt="Women's Arcadia Black Wedge Shoes">
+                    <figcaption>$35 - Women's Arcadia Black Wedge Shoes</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="C:\Users\mesha\Desktop\SHOE SALES\Customer Registration.html">
+                    <img src="c:\Users\mesha\Desktop\SHOE SALES\womens shoes\Dailyshoes low heels pumps.jpeg" alt="Low heels pumps">
+                    <figcaption>$45 - Low heels pumps</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="C:\Users\mesha\Desktop\SHOE SALES\Customer Registration.html">
+                    <img src="c:\Users\mesha\Desktop\SHOE SALES\womens shoes\Elegantpark Women Closed Toe Comgort.jpeg" alt="Closed Toe Comgort">
+                    <figcaption>$50 - Closed Toe Comgort</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="C:\Users\mesha\Desktop\SHOE SALES\Customer Registration.html">
+                    <img src="c:\Users\mesha\Desktop\SHOE SALES\womens shoes\OFloral pointed toe high Heels Shoes.jpeg" alt="Floral Pointed Toe High Heels">
+                    <figcaption>$55 - Floral Pointed Toe High Heels</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="C:\Users\mesha\Desktop\SHOE SALES\Customer Registration.html">
+                    <img src="c:\Users\mesha\Desktop\SHOE SALES\womens shoes\peak womens lightweight walking shoes.jpeg" alt="lightweight Walking shoes">
+                    <figcaption>$30 - Lightweight Walking shoes</figcaption>
+                </a>
+            </figure>
+        </div>
+        <div class="product-details" style="display: none;">
+            <!-- Your product details form -->
+        </div>
+    </div>
+    <footer class="footer">
+        &copy; 2024 Shoe Sales
+    </footer>
+    <script>
+        // Your JavaScript code
+    </script>
+</body>
+</html>
